@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#123d2a" />
+  <meta name="description" content="Protótipo do sistema de gestão da Love Dedetização" />
+  <title>Love Gestão | Protótipo</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://lovededetizadora.com" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <section id="loginScreen" class="login-screen">
+    <div class="login-visual">
+      <div class="visual-glow"></div>
+      <div class="brand-lockup brand-lockup--light">
+        <div class="brand-symbol" aria-hidden="true"><span>♥</span><i>⌂</i></div>
+        <div><strong>LOVE</strong><small>DEDETIZAÇÃO</small></div>
+      </div>
+      <div class="login-copy">
+        <span class="eyebrow">GESTÃO INTELIGENTE</span>
+        <h1>Controle a operação inteira em um só lugar.</h1>
+        <p>Clientes, agenda, orçamentos, ordens de serviço, comprovantes e financeiro com uma experiência simples para escritório e equipe de campo.</p>
+      </div>
+      <div class="login-features">
+        <div><b>01</b><span>Atendimento e agenda</span></div>
+        <div><b>02</b><span>OS e assinatura digital</span></div>
+        <div><b>03</b><span>Financeiro e relatórios</span></div>
+      </div>
+    </div>
+
+    <div class="login-panel">
+      <div class="login-card">
+        <div class="login-mobile-logo brand-lockup">
+          <div class="brand-symbol" aria-hidden="true"><span>♥</span><i>⌂</i></div>
+          <div><strong>LOVE</strong><small>DEDETIZAÇÃO</small></div>
+        </div>
+        <div class="login-heading">
+          <span class="status-dot"><i></i> Protótipo demonstrativo</span>
+          <h2>Bem-vindo ao Love Gestão</h2>
+          <p>Use o acesso de demonstração para navegar pelo sistema.</p>
+        </div>
+        <label class="field">
+          <span>E-mail</span>
+          <div class="input-wrap"><span>✉</span><input value="admin@lovededetizacao.com.br" aria-label="E-mail" /></div>
+        </label>
+        <label class="field">
+          <span>Senha</span>
+          <div class="input-wrap"><span>●</span><input value="12345678" type="password" aria-label="Senha" /></div>
+        </label>
+        <button id="loginButton" class="btn btn-primary btn-large">Entrar no protótipo <span>→</span></button>
+        <div class="login-note">Dados fictícios apenas para apresentação ao cliente.</div>
+      </div>
+    </div>
+  </section>
+
+  <div id="app" class="app is-hidden">
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-top">
+        <div class="brand-lockup brand-lockup--sidebar">
+          <div class="brand-symbol" aria-hidden="true"><span>♥</span><i>⌂</i></div>
+          <div><strong>LOVE</strong><small>GESTÃO</small></div>
+        </div>
+        <button id="closeSidebar" class="icon-btn mobile-only" aria-label="Fechar menu">×</button>
+      </div>
+
+      <nav class="nav" aria-label="Menu principal">
+        <button class="nav-item active" data-page="dashboard"><span>⌂</span> Visão geral</button>
+        <div class="nav-label">OPERAÇÃO</div>
+        <button class="nav-item" data-page="agenda"><span>▦</span> Agenda <em>5</em></button>
+        <button class="nav-item" data-page="clientes"><span>♙</span> Clientes</button>
+        <button class="nav-item" data-page="orcamentos"><span>▤</span> Orçamentos <em>3</em></button>
+        <button class="nav-item" data-page="os"><span>✓</span> Ordens de serviço</button>
+        <div class="nav-label">GESTÃO</div>
+        <button class="nav-item" data-page="financeiro"><span>R$</span> Financeiro</button>
+        <button class="nav-item" data-page="estoque"><span>⬡</span> Produtos e estoque</button>
+        <button class="nav-item" data-page="equipe"><span>♧</span> Equipe</button>
+        <button class="nav-item" data-page="relatorios"><span>↗</span> Relatórios</button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="mini-user">
+          <div class="avatar">EP</div>
+          <div><b>Erick Patrick</b><small>Administrador</small></div>
+          <button class="icon-btn">⋮</button>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button id="menuButton" class="icon-btn mobile-only" aria-label="Abrir menu">☰</button>
+          <div>
+            <span class="breadcrumb">LOVE GESTÃO / <b id="breadcrumbPage">VISÃO GERAL</b></span>
+            <h2 id="pageTitle">Visão geral</h2>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <button class="top-search" id="globalSearch"><span>⌕</span><span>Buscar cliente, OS...</span><kbd>⌘ K</kbd></button>
+          <button class="icon-btn notification-btn" aria-label="Notificações">♢<i></i></button>
+          <button class="btn btn-primary" data-action="new-os">+ Nova ordem de serviço</button>
+        </div>
+      </header>
+
+      <div id="content" class="content"></div>
+    </main>
+
+    <nav class="bottom-nav mobile-only" aria-label="Navegação móvel">
+      <button data-page="dashboard" class="active"><span>⌂</span><small>Início</small></button>
+      <button data-page="agenda"><span>▦</span><small>Agenda</small></button>
+      <button data-action="new-os" class="bottom-new"><span>＋</span><small>Nova OS</small></button>
+      <button data-page="clientes"><span>♙</span><small>Clientes</small></button>
+      <button data-page="financeiro"><span>R$</span><small>Financeiro</small></button>
+    </nav>
+  </div>
+
+  <div id="overlay" class="overlay"></div>
+
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div><span class="eyebrow">NOVA ORDEM DE SERVIÇO</span><h3 id="modalTitle">Criar atendimento</h3></div>
+        <button id="closeModal" class="icon-btn">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-grid">
+          <label class="field"><span>Cliente</span><select><option>Mariana Alves</option><option>Condomínio Jardim das Flores</option><option>Restaurante Sabor Cuiabano</option></select></label>
+          <label class="field"><span>Serviço</span><select><option>Controle de pragas urbanas</option><option>Descupinização</option><option>Desratização</option><option>Limpeza de caixa d'água</option></select></label>
+          <label class="field"><span>Data</span><input type="date" value="2026-09-24" /></label>
+          <label class="field"><span>Horário</span><input type="time" value="14:30" /></label>
+          <label class="field field-full"><span>Endereço</span><input value="Av. das Palmeiras, 245 - Cuiabá/MT" /></label>
+          <label class="field field-full"><span>Observações</span><textarea rows="3">Cliente relatou presença recorrente de baratas na cozinha e área de serviço.</textarea></label>
+        </div>
+      </div>
+      <div class="modal-actions"><button class="btn btn-ghost" id="cancelModal">Cancelar</button><button class="btn btn-primary" id="saveOs">Criar ordem de serviço</button></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
